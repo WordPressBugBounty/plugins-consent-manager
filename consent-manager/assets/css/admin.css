@@ -1,0 +1,68 @@
+.consentmanager_admin{
+    border: 4px solid #55acee;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 6px rgba(0,0,0,.2);
+    position: relative;
+}
+.consentmanager_admin label {
+    min-width: 175px;
+    max-width: 350px;
+    width: 100%;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: 700;
+}
+.consentmanager_admin label i {
+    font-weight: normal;
+}
+.consentmanager_admin input, .consentmanager_admin textarea, .consentmanager_admin select{
+    width: 250px;
+}
+.consentmanager_admin input[type=checkbox]{
+    width: 16px !important;
+}
+.consentmanager_admin input[type=submit]{
+    background-color: #55acee !important;
+    border-color: #55acee !important;
+    padding: 4px 0;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 178px;
+    width: 250px;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+.consentmanager_admin input[type=submit]:hover{
+    opacity: 0.9 !important;
+}
+.consentmanager_admin .btn{
+    background-color: #dedede;
+    color: #333 !important;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 6px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    text-decoration: none !important;
+}
+.consentmanager_admin .btn:hover{
+    background-color: #d5d5d5;
+}
+.consentmanager_admin .container_half{
+    width: calc(50% - 2px);
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.consentmanager_flex{
+    display: flex;
+}
+.consentmanager_img{
+    width: 100%;
+    max-width: 400px;
+}
