@@ -1,22 +1,20 @@
-﻿=== consentmanager ===
+﻿=== consentmanager Cookie Banner for Cookie Consent (Google Consent Mode and GDPR compliant Cookie Notice) ===
 Contributors: consentmanager
 Donate link: no donate-link provided
-Tags: privacy, DSGVO, GDPR, IAB, cookies
+Tags: cookie banner, GDPR, google consent mode, IAB TCF
 Requires at least: 3.0
-Tested up to: 6.6
-Stable tag: 3.0.7
+Tested up to: 6.7
+Stable tag: 3.0.9
 Requires PHP: 5.4
 License: GPLv2
 License URI: https://wordpress.org/about/gpl/
 
-
-Consentmanager.net CMP allows you to easily collect consent from your website visitors, ensuring GDPR and CCPA compliance.
-
+The consentmanager Cookie Banner and Cookie Notice allows you to easily collect cookie consent from your website visitors, ensuring GDPR compliance.
 
 == Description ==
 
 
-[consentmanager.net](https://consentmanager.net/) provides a comprehensive, effortlessly integrated Consent Management Platform (CMP) plugin tailored for WordPress. **Create your consent banner in minutes** and protect your website(s) from legal fines, designed by privacy experts for companies of all sizes and industries. It supports global compliance with key privacy laws such as **GDPR (EU), CCPA (US) , FADP (Switzerland), PIPEDA (Canada)** and privacy frameworks such as the **IAB Transparency and Consent Framework v2.2** and the **Global Privacy Platform (GPP)**. In addition, consentmanager keeps pace with a wide range of internet-related requirements that are critical for professionals in marketing, advertising, analytics, and related fields. Users can achieve full compliance with **Google Consent Mode v2** and other Google services, **including Google AdSense, Google Ad Manager and Google AdMob**, and **safeguard your monetisation efforts** with the **Google-certified CMP** from consentmanager. The consentmanager WordPress plugin gives you access to an advanced CMP framework with seamless compatibility with over 2500 tools and language support for over 30 options.
+The [consentmanager Cookie Banner](https://consentmanager.net/) provides a comprehensive, effortlessly integrated Consent Management Platform (CMP) plugin tailored for WordPress. **Create your consent banner in minutes** and protect your website(s) from legal fines, designed by privacy experts for companies of all sizes and industries. It supports global compliance with key privacy laws such as **GDPR (EU), CCPA (US) , FADP (Switzerland), PIPEDA (Canada)** and privacy frameworks such as the **IAB Transparency and Consent Framework v2.2** and the **Global Privacy Platform (GPP)**. In addition, consentmanager keeps pace with a wide range of internet-related requirements that are critical for professionals in marketing, advertising, analytics, and related fields. Users can achieve full compliance with **Google Consent Mode v2** and other Google services, **including Google AdSense, Google Ad Manager and Google AdMob**, and **safeguard your monetisation efforts** with the **Google-certified CMP** from consentmanager. The consentmanager WordPress plugin gives you access to an advanced CMP framework with seamless compatibility with over 2500 tools and language support for over 30 options.
 
 Designed for plug and play simplicity, consentmanager users can go much further with the use of **A/B testing** functionality, **advanced machine learning** and the ability to use our **reporting tools of over 30 metrics**. With the ability for customisation, our platform is tailored to the specific needs of your site. It has a **built-in cookie crawler** and offers **extensive customization options to match your site's aesthetic, enhancing the user experience without compromising on compliance.
 
@@ -25,18 +23,18 @@ Designed for plug and play simplicity, consentmanager users can go much further 
 **Our CMP solution is very simple to integrate:**
 
 1. Simply login to your consentmanager.net account
-2. Setup your website(s)
+2. Setup the cookie banner for your website(s)
 3. Copy your CMP-ID which you can find in your consentmanager dashboard, and paste it into the consentmanager wordpress plugin
 
 And you’re done!
 
-**Our platform will automatically start gathering consent from your visitors.** As soon as the code is in your website, advertisers will have access to the consent data via the open source API defined by the IAB.
+**Our platform will automatically start gathering cookie consent notices from your visitors.** As soon as the code is in your website, advertisers will have access to the consent data via the open source API defined by the IAB TCF.
 
 In addition you will get **detailed reports** which show you how your visitors are **behaving with the consent layer**, how many consents you get and **how you can optimize your strategy in order to obtain higher rates of consent.**
 
 **Features**
 
-* Fully customisable: **Tailor your consent banner** to fit seamlessly into your website's aesthetic.
+* Fully customisable: **Tailor your cookie banner** to fit seamlessly into your website's aesthetic.
 * A **Google certified CMP** and fully compliant with **Google Consent Mode v2**.
 * **Integrated Cookie Crawler:** Automatically detect and manage cookies and trackers on your site.
 * **Multi-language support:** Reach a global audience with support for **over 30 languages.**
@@ -49,7 +47,7 @@ In addition you will get **detailed reports** which show you how your visitors a
 
 **To help you understand the scope and effectiveness of the consentmanager WordPress plugin, consider these quick facts:**
 
-* consentmanager has helped more than 25,000 websites become compliant
+* consentmanager's Cookie Notice has helped more than 25,000 websites become compliant
 * Compatible with major solutions like **Google Analytics, Facebook, Hubspot, and many more.**
 * Exclusively utilizes **European servers for data storage**, ensuring data sovereignty and compliance with **"Schrems II"** requirements.
 * Supports website integration, AMP-sites, and **mobile apps (Android/iOS)**, with optional **age-verification mechanisms**.
@@ -60,6 +58,8 @@ In addition you will get **detailed reports** which show you how your visitors a
 * Privacy policy text generator
 * Whistleblower Software
 * Mobile SDK Integration
+* Data Subject Rights Management
+* Privacy-friendly Website Analytics
 
 **Support and Updates**
 
@@ -67,10 +67,11 @@ The consentmanager team is dedicated to providing continuous updates and support
 
 * [Support Centre](https://help.consentmanager.net/)
 * [Contact us](https://www.consentmanager.net/contact/)
+* [E-Mail us](mailto:support@consentmanager.net)
 
 **About consentmanager**
 
-With over a decade of experience in the adtech industry and a commitment to data privacy and compliance, consentmanager has established itself as a trusted leader in consent management. Our technology empowers businesses across the globe to manage user consent effectively, fostering trust and ensuring compliance with international privacy laws.
+With over a decade of experience in the adtech industry and a commitment to data privacy and compliance, consentmanager has established itself as a trusted leader in consent management. Our Cookie Banner technology empowers businesses across the globe to manage user consent effectively, fostering trust and ensuring compliance with international privacy laws.
 
 
 
@@ -113,13 +114,13 @@ Any question that you think is missing here? Get in touch with us and tell us yo
 == Screenshots ==
 
 
-1. CMP example 1
+1. Cookie Banner Example 1
 
-2. CMP example 2
+2. Cookie Banner Example 2
 
-3. CMP example 3
+3. Cookie Banner Example 3
 
-4. CMP example 4
+4. Cookie Banner Example 4
 
 
 == Changelog ==
@@ -168,3 +169,8 @@ Any question that you think is missing here? Get in touch with us and tell us yo
 3.0.6 - Ready for WP 6.5
 
 3.0.7 - Ready for WP 6.6
+
+3.0.8 - Minor fixes
+
+== Upgrade Notice ==
+upgrade now

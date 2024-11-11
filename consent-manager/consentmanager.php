@@ -2,9 +2,9 @@
 defined('ABSPATH') or die('No rights!');
 
 /*
-Plugin Name: consentmanager
-Description: consentmanager is the easiest way to reach the new privacy standard | GDPR/CCPA/PIPEDA/LGPD/PIPA Cookie Solution | Consent Management Provider
-Version: 3.0.7
+Plugin Name: consentmanager Cookie Banner for Cookie Consent (Google Consent Mode and GDPR compliant Cookie Notice)
+Description: The consentmanager Cookie Banner and Cookie Notice allows you to easily collect cookie consent from your website visitors, ensuring GDPR compliance.
+Version: 3.0.9
 Author: consentmanager
 Author URI: https://www.consentmanager.net
 License: GPL2
