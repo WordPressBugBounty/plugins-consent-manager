@@ -3,8 +3,8 @@ Contributors: consentmanager
 Donate link: no donate-link provided
 Tags: cookie banner, GDPR, google consent mode, IAB TCF
 Requires at least: 3.0
-Tested up to: 6.7
-Stable tag: 3.0.9
+Tested up to: 6.8
+Stable tag: 3.1.0
 Requires PHP: 5.4
 License: GPLv2
 License URI: https://wordpress.org/about/gpl/
@@ -171,6 +171,8 @@ Any question that you think is missing here? Get in touch with us and tell us yo
 3.0.7 - Ready for WP 6.6
 
 3.0.8 - Minor fixes
+
+3.1.0 - Ready for WP 6.8
 
 == Upgrade Notice ==
 upgrade now

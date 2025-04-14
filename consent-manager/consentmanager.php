@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No rights!');
 /*
 Plugin Name: consentmanager Cookie Banner for Cookie Consent (Google Consent Mode and GDPR compliant Cookie Notice)
 Description: The consentmanager Cookie Banner and Cookie Notice allows you to easily collect cookie consent from your website visitors, ensuring GDPR compliance.
-Version: 3.0.9
+Version: 3.1.0
 Author: consentmanager
 Author URI: https://www.consentmanager.net
 License: GPL2
