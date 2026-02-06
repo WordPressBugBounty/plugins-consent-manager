@@ -1,10 +1,9 @@
-﻿=== consentmanager Cookie Banner for Cookie Consent (Google Consent Mode and GDPR compliant Cookie Notice) ===
+﻿=== consentmanager Cookie Banner ===
 Contributors: consentmanager
-Donate link: no donate-link provided
 Tags: cookie banner, GDPR, google consent mode, IAB TCF
 Requires at least: 3.0
-Tested up to: 6.8
-Stable tag: 3.1.0
+Tested up to: 6.9
+Stable tag: 3.1.2
 Requires PHP: 5.4
 License: GPLv2
 License URI: https://wordpress.org/about/gpl/
@@ -173,6 +172,10 @@ Any question that you think is missing here? Get in touch with us and tell us yo
 3.0.8 - Minor fixes
 
 3.1.0 - Ready for WP 6.8
+
+3.1.1 - Ready for WP 6.9
+
+3.1.2 - Fixed WordPress guidelines
 
 == Upgrade Notice ==
 upgrade now

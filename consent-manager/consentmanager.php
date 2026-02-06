@@ -2,12 +2,13 @@
 defined('ABSPATH') or die('No rights!');
 
 /*
-Plugin Name: consentmanager Cookie Banner for Cookie Consent (Google Consent Mode and GDPR compliant Cookie Notice)
+Plugin Name: consentmanager Cookie Banner
 Description: The consentmanager Cookie Banner and Cookie Notice allows you to easily collect cookie consent from your website visitors, ensuring GDPR compliance.
-Version: 3.1.0
+Version: 3.1.2
 Author: consentmanager
 Author URI: https://www.consentmanager.net
 License: GPL2
+Text Domain: consent-manager
 */
 
 require_once dirname(__FILE__) . '/ConsentManagerMain.php';
@@ -36,16 +37,12 @@ if (!function_exists('consentmanager_add_autoblocking')) {
             $src = 'https://' . $cdn . '/delivery/autoblock/' . $cmpID . '.js';
         }
 
-        if ($cmpCodeID == '') {
-            $dataCmpID = 'data-cmp-id="' . $cmpID . '"';
-        } else {
-            $dataCmpID = '';
-        }
         ?>
+        <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- This script must be loaded directly for consent management functionality ?>
         <script type="text/javascript" src="<?php echo esc_url($src); ?>" data-cmp-ab="1"
-                data-cmp-host="<?php echo $host; ?>"
-                data-cmp-cdn="<?php echo $cdn; ?>"
-                data-cmp-codesrc="10" <?php echo $dataCmpID ?>></script>
+                data-cmp-host="<?php echo esc_attr($host); ?>"
+                data-cmp-cdn="<?php echo esc_attr($cdn); ?>"
+                data-cmp-codesrc="10"<?php if ($cmpCodeID == '') : ?> data-cmp-id="<?php echo esc_attr($cmpID); ?>"<?php endif; ?>></script>
         <?php
     }
 }
@@ -118,6 +115,7 @@ if (!function_exists('consentmanager_semiblocking')) {
         if ($cmpID > 0 || $cmpCodeID != '') {
             //serverside automatic & clientside semi automatic
             if ($mode != 1) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- This is JavaScript code that needs to be output as-is
                 echo ConsentManagerMain::getSemiBlockingCode($cmpID, $cmpCodeID, $host, $cdn);
             }
         }
@@ -143,10 +141,12 @@ if (!function_exists('consentmanager_vendorlist_shortcode')) {
 
         if ($cmpCodeID != '') {
             $src = esc_url('https://' . $host . '/delivery/vendorlist.php?cdid=' . $cmpCodeID);
-            return esc_html('<div id="cmpvendorlist"></div><script src="' . $src . '" type="text/javascript" async></script>');
+            // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- Shortcode output requires direct script tag
+            return '<div id="cmpvendorlist"></div><script src="' . esc_url($src) . '" type="text/javascript" async></script>';
         } else if ($cmpID > 0) {
             $src = esc_url('https://' . $host . '/delivery/vendorlist.php?id=' . $cmpID);
-            return esc_html('<div id="cmpvendorlist"></div><script src="' . $src . '" type="text/javascript" async></script>');
+            // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- Shortcode output requires direct script tag
+            return '<div id="cmpvendorlist"></div><script src="' . esc_url($src) . '" type="text/javascript" async></script>';
         }
     }
 }
@@ -168,10 +168,12 @@ if (!function_exists('consentmanager_cookie_list_shortcode')) {
 
         if ($cmpCodeID != '') {
             $src = esc_url('https://' . $host . '/delivery/cookieinfo.php?cdid=' . $cmpCodeID);
-            return esc_html('<div id="cmpcookieinfo"></div><script src="' . $src . '" type="text/javascript" async></script>');
+            // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- Shortcode output requires direct script tag
+            return '<div id="cmpcookieinfo"></div><script src="' . esc_url($src) . '" type="text/javascript" async></script>';
         } else if ($cmpID > 0) {
             $src = esc_url('https://' . $host . '/delivery/cookieinfo.php?id=' . $cmpID);
-            return esc_html('<div id="cmpcookieinfo"></div><script src="' . $src . '" type="text/javascript" async></script>');
+            // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- Shortcode output requires direct script tag
+            return '<div id="cmpcookieinfo"></div><script src="' . esc_url($src) . '" type="text/javascript" async></script>';
         }
     }
 }
@@ -216,7 +218,7 @@ if (!function_exists('consentManager_display_admin_page')) {
             return;
         }
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'consent-manager'));
         }
         include_once 'views/admin.php';
     }
@@ -256,6 +258,7 @@ if (!function_exists('consentmanager_amp_script')) {
     function consentmanager_amp_script()
     {
         ?>
+        <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- AMP requires direct script tag injection ?>
         <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
         <meta name="amp-consent-blocking" content="amp-ad">
         <?php

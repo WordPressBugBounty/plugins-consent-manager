@@ -2,38 +2,39 @@
 defined('ABSPATH') or die('Not allowed');
 
 
-$updateSucces = false;
-$validationError = false;
-$error = false;
+$consentmanager_update_success = false;
+$consentmanager_validation_error = false;
+$consentmanager_error = false;
 
 if (
     isset($_POST['submit']) &&
     isset($_POST['consent_manager_mode']) &&
     isset($_POST['consent_manager_id']) &&
     isset($_POST['consent_manager_code_id']) &&
-    wp_verify_nonce($_POST['_wpnonce'], ConsentManagerMain::getAdminUrl()) &&
+    isset($_POST['_wpnonce']) &&
+    wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), ConsentManagerMain::getAdminUrl()) &&
     check_admin_referer(ConsentManagerMain::getAdminUrl())
 ) {
     //      temporary deactivated until found perfomance solution for serverside blocking
-//    $ignoreDomains = isset($_POST['consent_manager_ignore_domains']) ? sanitize_text_field($_POST['consent_manager_ignore_domains']) : '';
-    $mode = intval($_POST['consent_manager_mode']);
-    $cmpID = intval($_POST['consent_manager_id']);
-    $cmpCodeID = sanitize_text_field($_POST['consent_manager_code_id']);
-    $host = isset($_POST['consent_manager_host']) ? sanitize_text_field($_POST['consent_manager_host']) : '';
-    $cdn = isset($_POST['consent_manager_cdn']) ? sanitize_text_field($_POST['consent_manager_cdn']) : '';
-    $hideOnEditor = isset($_POST['consent_manager_hide_on_editor']) ? intval($_POST['consent_manager_hide_on_editor']) : 0;
+//    $consentmanager_ignore_domains = isset($_POST['consent_manager_ignore_domains']) ? sanitize_text_field(wp_unslash($_POST['consent_manager_ignore_domains'])) : '';
+    $consentmanager_mode = intval($_POST['consent_manager_mode']);
+    $consentmanager_cmp_id = intval($_POST['consent_manager_id']);
+    $consentmanager_cmp_code_id = sanitize_text_field(wp_unslash($_POST['consent_manager_code_id']));
+    $consentmanager_host = isset($_POST['consent_manager_host']) ? sanitize_text_field(wp_unslash($_POST['consent_manager_host'])) : '';
+    $consentmanager_cdn = isset($_POST['consent_manager_cdn']) ? sanitize_text_field(wp_unslash($_POST['consent_manager_cdn'])) : '';
+    $consentmanager_hide_on_editor = isset($_POST['consent_manager_hide_on_editor']) ? intval($_POST['consent_manager_hide_on_editor']) : 0;
 
     try {
-        update_option(ConsentManagerMain::getOptionID(), $cmpID);
-        update_option(ConsentManagerMain::getOptionCodeID(), $cmpCodeID);
-        update_option(ConsentManagerMain::getOptionMode(), $mode);
-        update_option(ConsentManagerMain::getHideOnEditor(), $hideOnEditor);
-        update_option(ConsentManagerMain::getOptionHost(), $host);
-        update_option(ConsentManagerMain::getOptionCDN(), $cdn);
+        update_option(ConsentManagerMain::getOptionID(), $consentmanager_cmp_id);
+        update_option(ConsentManagerMain::getOptionCodeID(), $consentmanager_cmp_code_id);
+        update_option(ConsentManagerMain::getOptionMode(), $consentmanager_mode);
+        update_option(ConsentManagerMain::getHideOnEditor(), $consentmanager_hide_on_editor);
+        update_option(ConsentManagerMain::getOptionHost(), $consentmanager_host);
+        update_option(ConsentManagerMain::getOptionCDN(), $consentmanager_cdn);
         //temporary deactivated until found perfomance solution for serverside blocking
-//        update_option(ConsentManagerMain::getOptionIgnoreDomains(), $ignoreDomains);
+//        update_option(ConsentManagerMain::getOptionIgnoreDomains(), $consentmanager_ignore_domains);
     } catch (Exception $e) {
-        $error = $e->getMessage();
+        $consentmanager_error = $e->getMessage();
     }
 }
 
@@ -45,24 +46,24 @@ if (
              alt="consentmanager"/>
     </h1>
 
-    <?php if ($error) : ?>
+    <?php if ($consentmanager_error) : ?>
         <div>
             <p class="notice notice-error">
-                <?php _e("The ID could not be saved. Please check your database and Wordpress version!"); ?>
+                <?php esc_html_e('The ID could not be saved. Please check your database and Wordpress version!', 'consent-manager'); ?>
             </p>
         </div>
     <?php endif; ?>
-    <?php if ($validationError) : ?>
+    <?php if ($consentmanager_validation_error) : ?>
         <div>
             <p class="notice notice-error">
-                <?php _e($validationError); ?>
+                <?php echo esc_html($consentmanager_validation_error); ?>
             </p>
         </div>
     <?php endif; ?>
-    <?php if ($updateSucces) : ?>
-    <di
+    <?php if ($consentmanager_update_success) : ?>
+    <div>
     <p class="notice notice-success">
-        <?php _e("Updated"); ?>
+        <?php esc_html_e('Updated', 'consent-manager'); ?>
     </p>
 </div>
 <?php endif; ?>
@@ -72,7 +73,7 @@ if (
 
         <form method="post">
 
-            <?php echo wp_nonce_field(esc_url(ConsentManagerMain::getAdminUrl())) ?>
+            <?php wp_nonce_field(ConsentManagerMain::getAdminUrl()); ?>
 
             <div class="consentmanager_flex">
                 <div>
@@ -133,8 +134,8 @@ if (
                 <div>
                     <label>Blocking Mode:</label>
                     <select name="consent_manager_mode" id="consent_manager_mode">
-                        <option value="1" <?php echo intval(get_option(ConsentManagerMain::getOptionMode(), 0)) == 1 ? 'selected' : ''; ?>><?php _e("Automatic clientside blocking"); ?></option>
-                        <option value="3" <?php echo intval(get_option(ConsentManagerMain::getOptionMode(), 0)) == 3 ? 'selected' : ''; ?>><?php _e("Semiautomatic Code"); ?></option>
+                        <option value="1" <?php echo intval(get_option(ConsentManagerMain::getOptionMode(), 0)) == 1 ? 'selected' : ''; ?>><?php esc_html_e('Automatic clientside blocking', 'consent-manager'); ?></option>
+                        <option value="3" <?php echo intval(get_option(ConsentManagerMain::getOptionMode(), 0)) == 3 ? 'selected' : ''; ?>><?php esc_html_e('Semiautomatic Code', 'consent-manager'); ?></option>
                     </select>
                 </div>
                 <div>
